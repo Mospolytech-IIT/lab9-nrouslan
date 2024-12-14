@@ -48,7 +48,7 @@ def populate_db():
             ]
             add_posts(session, posts_to_add)
         else:
-            print("--> БД уже заполнена начальными данными...")  
+            print("--> БД уже заполнена начальными данными...") 
     except IntegrityError as e:
         print(f"---> Ошибка при создании таблиц: {e}")
 
