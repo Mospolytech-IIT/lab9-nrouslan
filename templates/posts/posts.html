@@ -1,3 +1,5 @@
+{% extends "layout.html" %} {% block content %}
+
 <h1>Posts</h1>
 <a href="/posts/create">Create New Post</a>
 <table border="1">
@@ -19,9 +21,13 @@
       <td>{{ post.user.username }}</td>
       <td>
         <a href="/posts/{{ post.id }}/edit">Edit</a> |
-        <a href="/posts/{{ post.id }}/delete">Delete</a>
+        <form action="/posts/{{ post.id }}/delete" method="post">
+          <button type="submit">Delete</button>
+        </form>
       </td>
     </tr>
     {% endfor %}
   </tbody>
 </table>
+
+{% endblock %}

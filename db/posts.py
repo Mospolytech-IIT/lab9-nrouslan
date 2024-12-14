@@ -24,6 +24,10 @@ def get_posts_by_user(session, user_id):
     """Функция для получения всех постов пользователя из БД."""
     return session.query(Post).filter(Post.user_id == user_id).all()
 
+def get_post_by_id(session, post_id):
+    """Функция для получения пользователя из БД по id."""
+    return session.query(Post).filter(Post.id == post_id).all()[0]
+
 def update_post_content(session, post_id, new_content):
     """Функция для обновления содержимого поста в БД."""
     post = session.query(Post).get(post_id)

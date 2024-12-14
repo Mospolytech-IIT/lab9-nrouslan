@@ -14,7 +14,7 @@ class User(BaseModel):
 class UserList(BaseModel):
     """Модель списка пользователей."""
     users: List[User]
-    
+
 class CreateUserDto(BaseModel):
     """Dto-объект для создания нового пользователя."""
     username: str
@@ -31,6 +31,16 @@ class Post(BaseModel):
     title: str
     content: str
     user_id: int
+
+class CreatePostDto(BaseModel):
+    """Dto-объект для создания нового поста."""
+    title: str
+    content: str
+    user_id: int
+
+class UpdatePostDto(BaseModel):
+    """Dto-объект для обновления данных поста."""
+    content: str
 
 class PostList(BaseModel):
     """Модель списка постов."""

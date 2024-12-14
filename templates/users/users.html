@@ -1,10 +1,16 @@
+{% extends "layout.html" %} {% block content %}
 <h1>Users</h1>
 <ul>
   {% for user in users %}
   <li>
-    {{ user.username }} ({{ user.email }})  - <a href="/users/{{ user.id }}/edit">Edit</a> -
-    <a href="/users/{{ user.id }}/delete">Delete</a>
+    {{ user.username }} ({{ user.email }}) -
+    <a href="/users/{{ user.id }}/edit">Edit</a> -
+    <form action="/users/{{ user.id }}/delete" method="post">
+      <button type="submit">Delete</button>
+    </form>
   </li>
   {% endfor %}
 </ul>
 <a href="/users/create">Create New User</a>
+
+{% endblock %}
